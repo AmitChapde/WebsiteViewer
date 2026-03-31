@@ -143,7 +143,10 @@ Some websites block embedding via headers like `X-Frame-Options`.
 - The UI is kept minimal with a focus on usability.
 - Avoided overengineering by not including a database.
 
-## License
+## Environment Variables
 
-This project is licensed under the MIT License.
-# WebsiteViewer
+To configure the application, create a `.env` file in both directory based on the provided `.env.example` file. Update the values as required
+
+---
+
+
