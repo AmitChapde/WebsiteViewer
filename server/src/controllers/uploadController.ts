@@ -12,9 +12,8 @@ export const handleUpload = (req: Request, res: Response) => {
 
     const filePath = req.file.path;
 
-    const { validUrls, invalidCount, duplicateCount } = extractUrlsFromFile(
-      filePath
-    );
+    const { validUrls, invalidCount, duplicateCount } =
+      extractUrlsFromFile(filePath);
 
     fs.unlinkSync(filePath);
 
@@ -24,7 +23,7 @@ export const handleUpload = (req: Request, res: Response) => {
         total: validUrls.length + invalidCount,
         valid: validUrls.length,
         invalid: invalidCount,
-        duplicates: duplicateCount, 
+        duplicates: duplicateCount,
       },
     });
   } catch (error) {

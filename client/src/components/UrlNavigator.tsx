@@ -2,6 +2,7 @@ import { useState } from "react";
 import FileUpload from "./FileUpload";
 import UrlViewer from "./UrlViewer";
 import { isValidUrl } from "../utils/validateUrl";
+import { Loader } from "lucide-react";
 
 export default function UrlNavigator() {
   const [urls, setUrls] = useState<string[]>([]);
@@ -37,7 +38,6 @@ export default function UrlNavigator() {
 
   return (
     <div className="space-y-6">
-      
       {/* Upload Section */}
       <div className="border border-gray-200 rounded-xl p-5 bg-gray-50">
         <FileUpload
@@ -51,7 +51,7 @@ export default function UrlNavigator() {
       <div className="space-y-2">
         {loading && (
           <p className="text-sm text-gray-500 flex items-center gap-2">
-            <span className="animate-pulse">⏳</span> Uploading file...
+            <Loader className="animate-pulse" /> Uploading file...
           </p>
         )}
 
@@ -74,7 +74,7 @@ export default function UrlNavigator() {
             <button
               onClick={handlePrev}
               disabled={currentIndex === 0}
-              className={`px-4 py-2 rounded-lg shadow-md transition-all ${currentIndex === 0 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 text-white cursor-pointer'}`}
+              className={`px-4 py-2 rounded-lg shadow-md transition-all ${currentIndex === 0 ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 text-white cursor-pointer"}`}
             >
               Previous
             </button>
@@ -86,7 +86,7 @@ export default function UrlNavigator() {
             <button
               onClick={handleNext}
               disabled={currentIndex === urls.length - 1}
-              className={`px-4 py-2 rounded-lg shadow-md transition-all ${currentIndex === urls.length - 1 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-green-500 hover:bg-green-600 text-white cursor-pointer'}`}
+              className={`px-4 py-2 rounded-lg shadow-md transition-all ${currentIndex === urls.length - 1 ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-green-500 hover:bg-green-600 text-white cursor-pointer"}`}
             >
               Next
             </button>
